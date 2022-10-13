@@ -8,6 +8,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: #659dbd;
 }
 
 #header_dot {
@@ -20,12 +21,19 @@ body {
 }
 
 #header_heading {
-  color: green;
   margin-left: 0.5rem;
   color: #000000;
+  font-weight: bold;
 }
 
 #footer {
   display: flex;
   justify-content: space-between;
+}
+
+#signup_form {
+  margin: 0 auto;
+  width: 32rem;
+  height: 36rem;
+  background-color: #ffffff;
 }
