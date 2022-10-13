@@ -24,3 +24,8 @@ body {
   margin-left: 0.5rem;
   color: #000000;
 }
+
+#footer {
+  display: flex;
+  justify-content: space-between;
+}
