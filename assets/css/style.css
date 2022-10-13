@@ -1,9 +1,26 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+#header_dot {
+  height: 10px;
+  width: 10px;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 3rem;
+}
+
 #header_heading {
   color: green;
+  margin-left: 0.5rem;
+  color: #000000;
 }
