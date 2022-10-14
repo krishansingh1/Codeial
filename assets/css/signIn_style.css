@@ -53,14 +53,14 @@ body {
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
   width: 20rem;
-  height: 3rem;
+  height: 2rem;
   border-radius: 0.5rem;
   border: 1.5px solid gray;
 }
 
 #form input::placeholder {
   font-family: "Poppins", sans-serif;
-  padding-left: 1rem;
+  padding-left: 0.5rem;
   font-size: 0.9rem;
 }
 
@@ -74,6 +74,7 @@ body {
   margin-left: 13rem;
   font-size: 0.8rem;
   color: #7f56da;
+  cursor: pointer;
 }
 
 #form button:last-child {
