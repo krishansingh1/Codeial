@@ -27,13 +27,18 @@ module.exports.create = function (req, res) {
     }
 
     if (!user) {
-      User.create(req.body, function (err, user) {
-        if (err) {
-          console.log("Error in creating user while signing up");
-          return;
+      User.create(
+        req.body.Email,
+        req.body.Password,
+        req.body.Name,
+        function (err, user) {
+          if (err) {
+            console.log("Error in creating user while signing up");
+            return;
+          }
+          return res.redirect("/users/signIn");
         }
-        return res.redirect("/users/signIn");
-      });
+      );
     } else {
       return res.redirect("back");
     }
