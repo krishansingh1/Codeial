@@ -3,22 +3,26 @@
     <form action="/users/create" method="POST" id="form">
         <label for="name">Name*</label>
         <br>
-        <input type="text" name="Name" id="name" placeholder="Enter your name" required>
+        <input type="text" name="name" id="name" placeholder="Enter your name" required>
         <br>
         <label for="email">Email*</label>
         <br>
-        <input type="email" name="Email" id="email" placeholder="Enter you email" required>
+        <input type="email" name="email" id="email" placeholder="Enter you email" required>
         <br>
         <label for="password">Password*</label>
         <br>
-        <input type="password" name="Password" id="password" placeholder="Create a password" required>
+        <input type="password" name="password" id="password" placeholder="Create a password" required>
         <br>
         <span id="form_span">Must be at least 8 characters.</span>
         <br>
         <label for="confirm_password">Confirm Password*</label>
         <br>
-        <input type="password" name="Confirm_password" id="confirm_password" placeholder="Confirm password" required>
+        <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm password" required>
         <br>
         <button type="submit" class="form_btn">Create account</button>
+        <br>
+        <button type="submit" class="form_btn" id="btn_text"><img src="/images/icons8-google-96.png" alt="Google logo">
+            <span>Sign up with
+                Google</span></button>
     </form>
 </div>

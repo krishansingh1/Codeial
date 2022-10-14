@@ -77,6 +77,11 @@ body {
   cursor: pointer;
 }
 
+#form button:last-child {
+  background-color: #ffffff;
+  color: #000000;
+}
+
 .form_btn {
   width: 20rem;
   height: 3rem;
