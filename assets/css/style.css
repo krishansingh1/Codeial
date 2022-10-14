@@ -36,4 +36,35 @@ body {
   width: 32rem;
   height: 36rem;
   background-color: #ffffff;
+  padding-left: 5rem;
+}
+
+#signup_form h1 {
+  padding: 2rem 0;
+}
+
+#form input {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  width: 20rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid gray;
+}
+
+#form input::placeholder {
+  font-family: "Poppins", sans-serif;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+}
+
+#form_span {
+  position: relative;
+  top: -1.5rem;
+  font-size: 0.8rem;
+}
+
+.form_btn {
+  width: 20rem;
+  height: 3rem;
 }
