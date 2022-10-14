@@ -17,12 +17,12 @@ module.exports.signIn = function (req, res) {
 
 module.exports.create = function (req, res) {
   if (req.body.Password != req.body.Confirm_password) {
-    return res.redirect("/users/signUp");
+    return res.redirect("back");
   }
 
   User.findOne({ email: req.body.Email }, function (err, user) {
     if (err) {
-      console.log("Error in finding user ins igning up");
+      console.log("Error in finding user in signing up");
       return;
     }
 
@@ -32,7 +32,6 @@ module.exports.create = function (req, res) {
           console.log("Error in creating user while signing up");
           return;
         }
-
         return res.redirect("/users/signIn");
       });
     } else {
@@ -41,4 +40,4 @@ module.exports.create = function (req, res) {
   });
 };
 
-module.exports.createSession = function (req, res) {};
+// module.exports.createSession = function (req, res) {};
