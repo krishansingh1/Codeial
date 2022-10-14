@@ -24,11 +24,13 @@ body {
   margin-left: 0.5rem;
   color: #000000;
   font-weight: bold;
+  color: #ffffff;
 }
 
 #footer {
   display: flex;
   justify-content: space-between;
+  color: #ffffff;
 }
 
 #signup_form {
