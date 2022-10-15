@@ -8,7 +8,7 @@ passport.use(
       usernameField: "email",
     },
     function (email, password, done) {
-        
+      //find a user establish the identity
     }
   )
 );
