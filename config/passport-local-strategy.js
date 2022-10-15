@@ -30,4 +30,10 @@ passport.use(
   )
 );
 
+// Serialize the user to decide which key is to be kept in the cokkies
 
+passport.serializeUser(function (user, done) {
+  done(null, user.id);
+});
+
+// deseralizing the user from the key in the cokkies
