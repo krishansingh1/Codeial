@@ -37,3 +37,13 @@ passport.serializeUser(function (user, done) {
 });
 
 // deseralizing the user from the key in the cokkies
+passport.deserializeUser(function (id, done) {
+  User.findById(id, function (err, user) {
+    if (err) {
+      console.log("Error in finding a user");
+      return done(err);
+    }
+
+    return done(null, user);
+  });
+});
