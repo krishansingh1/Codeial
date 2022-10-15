@@ -2,8 +2,13 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const expressLayouts = require("express-ejs-layouts");
 const app = express();
-const db = require("./config/mongoose");
 const port = 8000;
+const db = require("./config/mongoose");
+const session = require("express-session");
+const passport = require("passport");
+const passportLocal = require("passport-local");
+
+
 
 app.use(express.urlencoded());
 
