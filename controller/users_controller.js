@@ -77,3 +77,16 @@ module.exports.createSession = function (req, res) {
     }
   });
 };
+
+module.exports.delete = function (req, res) {
+  if (req.cookies.user_id) {
+    User.findByIdAndDelete(req.cookies.user_id, function (err, user) {
+      if (err) {
+        console.log(`Error: ${err}`);
+      }
+      if (user) {
+        return res.redirect("/users/signIn");
+      }
+    });
+  }
+};
