@@ -22,7 +22,9 @@ module.exports.signUp = function (req, res) {
   // return res.end("<h1>User Controller is up and runinn!</h1>");
   // console.log(req.cookies);
 
-  
+  if (req.isAuthenticated()) {
+    return res.redirect("/users/profile");
+  }
 
   return res.render("signUp", {
     title: "Codeial | SignUp",
@@ -31,6 +33,10 @@ module.exports.signUp = function (req, res) {
 
 module.exports.signIn = function (req, res) {
   // return res.end("<h1>Profile 2 Controller is up and runinn!</h1>");
+  if (req.isAuthenticated()) {
+    return res.redirect("/users/profile");
+  }
+
   return res.render("signIn", {
     title: "Codeial | SignIn",
   });
