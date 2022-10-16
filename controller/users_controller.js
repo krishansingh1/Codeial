@@ -1,18 +1,21 @@
 const User = require("../models/user");
 
 module.exports.profile = function (req, res) {
-  if (req.cookies.user_id) {
-    User.findById(req.cookies.user_id, function (err, user) {
-      if (user) {
-        return res.render("home", {
-          title: "Profile",
-          user: user,
-        });
-      }
-    });
-  } else {
-    return res.redirect("/users/signIn");
-  }
+  // if (req.cookies.user_id) {
+  //   User.findById(req.cookies.user_id, function (err, user) {
+  //     if (user) {
+  //       return res.render("home", {
+  //         title: "Profile",
+  //         user: user,
+  //       });
+  //     }
+  //   });
+  // } else {
+  //   return res.redirect("/users/signIn");
+  // }
+  return res.render("home", {
+    title: "Profile",
+  });
 };
 
 module.exports.signUp = function (req, res) {

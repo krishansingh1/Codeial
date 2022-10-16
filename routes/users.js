@@ -13,6 +13,6 @@ router.post(
   passport.authenticate("local", { failureRedirect: "/users/signIn" }),
   userController.createSession
 );
-router.get("/delete", userController.delete);
+// router.get("/delete", userController.delete);
 
 module.exports = router;
