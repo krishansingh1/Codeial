@@ -7,6 +7,7 @@ const db = require("./config/mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocal = require("./config/passport-local-strategy");
+const MongoStore = require("connect-mongo");
 
 app.use(express.urlencoded());
 
@@ -33,6 +34,15 @@ app.use(
     cookie: {
       maxAge: 1000 * 60 * 100,
     },
+  })
+);
+
+app.use(
+  session({
+    secret: "foo",
+    store: MongoStore.create(db, function (err) {
+      console.log(err || "connect-mongodb setup ok");
+    }),
   })
 );
 
