@@ -20,7 +20,10 @@ module.exports.profile = function (req, res) {
 
 module.exports.signUp = function (req, res) {
   // return res.end("<h1>User Controller is up and runinn!</h1>");
-  console.log(req.cookies);
+  // console.log(req.cookies);
+
+  
+
   return res.render("signUp", {
     title: "Codeial | SignUp",
   });
