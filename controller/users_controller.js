@@ -1,8 +1,8 @@
 const User = require("../models/user");
 
 module.exports.profile = function (req, res) {
-  // if (req.cookies.user_id) {
-  //   User.findById(req.cookies.user_id, function (err, user) {
+  // if (req.cookies.codeial) {
+  //   User.findById(req.cookies.codeial, function (err, user) {
   //     if (user) {
   //       return res.render("home", {
   //         title: "Profile",
@@ -61,3 +61,16 @@ module.exports.create = function (req, res) {
 module.exports.createSession = function (req, res) {
   return res.redirect("/");
 };
+
+// module.exports.delete = function (req, res) {
+//   if (req.cookies.codeial) {
+//     User.findByIdAndDelete(req.cookies.codeial, function (err, user) {
+//       if (err) {
+//         console.log(`Error: ${err}`);
+//       }
+//       if (user) {
+//         return res.redirect("/users/signIn");
+//       }
+//     });
+//   }
+// };
