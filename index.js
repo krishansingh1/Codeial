@@ -34,15 +34,15 @@ app.use(
     cookie: {
       maxAge: 1000 * 60 * 100,
     },
-  })
-);
-
-app.use(
-  session({
-    secret: "foo",
-    store: MongoStore.create(db, function (err) {
-      console.log(err || "connect-mongodb setup ok");
-    }),
+    store: MongoStore.create(
+      {
+        mongoUrl: "mongodb://localhost:27017/codeial",
+        autoRemove: "disabled",
+      },
+      function (err) {
+        console.log(err || "connect-mongodb setup ok");
+      }
+    ),
   })
 );
 

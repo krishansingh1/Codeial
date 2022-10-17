@@ -1,18 +1,6 @@
 const User = require("../models/user");
 
 module.exports.profile = function (req, res) {
-  // if (req.cookies.codeial) {
-  //   User.findById(req.cookies.codeial, function (err, user) {
-  //     if (user) {
-  //       return res.render("home", {
-  //         title: "Profile",
-  //         user: user,
-  //       });
-  //     }
-  //   });
-  // } else {
-  //   return res.redirect("/users/signIn");
-  // }
   return res.render("home", {
     title: "Profile",
   });
@@ -71,15 +59,11 @@ module.exports.createSession = function (req, res) {
   return res.redirect("/");
 };
 
-// module.exports.delete = function (req, res) {
-//   if (req.cookies.codeial) {
-//     User.findByIdAndDelete(req.cookies.codeial, function (err, user) {
-//       if (err) {
-//         console.log(`Error: ${err}`);
-//       }
-//       if (user) {
-//         return res.redirect("/users/signIn");
-//       }
-//     });
-//   }
-// };
+module.exports.signOut = function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+};
