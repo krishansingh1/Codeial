@@ -64,6 +64,6 @@ module.exports.signOut = function (req, res, next) {
     if (err) {
       return next(err);
     }
-    res.redirect("/");
+    res.redirect("/users/signIn");
   });
 };
