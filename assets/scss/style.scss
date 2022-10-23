@@ -1,12 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #7f56da; }
+  background-color: #7f56da;
+}
 
 #header_dot {
   height: 10px;
@@ -14,65 +17,73 @@ body {
   background-color: black;
   border-radius: 50%;
   display: inline-block;
-  margin-left: 3rem; }
+  margin-left: 3rem;
+}
 
 #header_heading {
   margin-left: 0.5rem;
   color: #000000;
   font-weight: bold;
-  color: #ffffff; }
+  color: #ffffff;
+}
 
 #footer {
   display: flex;
   justify-content: space-between;
-  color: #ffffff; }
+  color: #ffffff;
+}
 
 #signup_form {
   margin: 0 auto;
   width: 32rem;
   height: 36.5rem;
   background-color: #ffffff;
-  padding-left: 5rem; }
+  padding-left: 5rem;
+}
 
 #signup_form h1 {
-  padding: 2rem 0; }
-
-#signup_form p {
-  padding: 2rem 0;
-  font-size: 0.9rem;
-  margin-top: -3.3rem; }
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
 
 #form input {
   margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   width: 20rem;
   height: 2rem;
   border-radius: 0.5rem;
-  border: 1.5px solid gray; }
+  border: 1.5px solid gray;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+}
 
 #form input::placeholder {
   font-family: "Poppins", sans-serif;
   padding-left: 0.5rem;
-  font-size: 0.9rem; }
+  font-size: 0.9rem;
+}
 
-#form input[type="password"]::placeholder {
-  font-size: 3rem; }
+#form input:focus {
+  font-family: "Poppins", sans-serif;
+  padding-left: 0.5rem;
+  font-size: 0.9rem;
+}
 
 #form_span {
   position: relative;
   top: -1rem;
-  margin-left: 13rem;
   font-size: 0.8rem;
-  color: #7f56da;
-  cursor: pointer; }
+}
 
 #form button:last-child {
   background-color: #ffffff;
-  color: #000000; }
+  color: #000000;
+  cursor: pointer;
+}
 
 .form_btn {
   width: 20rem;
-  height: 3rem;
+  height: 2.5rem;
   border-radius: 0.5rem;
   border: 1.5px solid gray;
   background-color: #7f56da;
@@ -80,12 +91,16 @@ body {
   font-size: 0.9rem;
   font-weight: bold;
   color: #ffffff;
-  margin-bottom: 1rem; }
+  margin-top: 1rem;
+  cursor: pointer;
+}
 
 .form_btn img {
   width: 1.9rem;
-  padding-right: 0.5rem; }
+  padding-right: 0.5rem;
+}
 
 #btn_text span {
   position: relative;
-  top: -0.4rem; }
+  top: -0.4rem;
+}
