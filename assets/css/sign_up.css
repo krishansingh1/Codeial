@@ -10,7 +10,7 @@ body {
 
 #footer {
   position: relative;
-  top: 2.5rem;
+  top: 0.5rem;
   display: flex;
   justify-content: space-between;
   color: #ffffff;
@@ -21,45 +21,42 @@ body {
 #signup_form {
   margin: 0 auto;
   width: 32rem;
-  height: 30rem;
+  height: 33rem;
   background-color: #ffffff;
   padding-left: 5rem; }
 
 #signup_form h1 {
-  padding: 2rem 0; }
-
-#signup_form p {
-  padding: 2rem 0;
-  font-size: 0.9rem;
-  margin-top: -3.3rem; }
+  padding-top: 2rem;
+  padding-bottom: 1rem; }
 
 #form input {
   margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   width: 20rem;
   height: 2rem;
   border-radius: 0.5rem;
-  border: 1.5px solid gray; }
+  border: 1.5px solid gray;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem; }
 
 #form input::placeholder {
   font-family: "Poppins", sans-serif;
   padding-left: 0.5rem;
   font-size: 0.9rem; }
 
-#form input[type="password"]::placeholder {
-  font-size: 3rem; }
+#form input:focus {
+  font-family: "Poppins", sans-serif;
+  padding-left: 0.5rem;
+  font-size: 0.9rem; }
 
 #form_span {
   position: relative;
   top: -1rem;
-  margin-left: 13rem;
-  font-size: 0.8rem;
-  color: #7f56da;
-  cursor: pointer; }
+  font-size: 0.8rem; }
 
 .form_btn {
   width: 20rem;
-  height: 3rem;
+  height: 2.5rem;
   border-radius: 0.5rem;
   border: 1.5px solid gray;
   background-color: #7f56da;
@@ -67,7 +64,8 @@ body {
   font-size: 0.9rem;
   font-weight: bold;
   color: #ffffff;
-  margin-bottom: 1rem; }
+  margin-top: 1rem;
+  cursor: pointer; }
 
 .form_btn img {
   width: 1.9rem;

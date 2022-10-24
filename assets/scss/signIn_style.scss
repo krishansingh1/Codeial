@@ -11,32 +11,21 @@ body {
   background-color: #7f56da;
 }
 
-#header_dot {
-  height: 10px;
-  width: 10px;
-  background-color: black;
-  border-radius: 50%;
-  display: inline-block;
-  margin-left: 3rem;
-}
-
-#header_heading {
-  margin-left: 0.5rem;
-  color: #000000;
-  font-weight: bold;
-  color: #ffffff;
-}
-
 #footer {
+  position: relative;
+  top: 2.5rem;
   display: flex;
   justify-content: space-between;
   color: #ffffff;
+  background-color: gray;
+  height: 3rem;
+  padding-top: 0.8rem;
 }
 
 #signup_form {
   margin: 0 auto;
   width: 32rem;
-  height: 36.5rem;
+  height: 30rem;
   background-color: #ffffff;
   padding-left: 5rem;
 }
@@ -77,11 +66,6 @@ body {
   font-size: 0.8rem;
   color: #7f56da;
   cursor: pointer;
-}
-
-#form button:last-child {
-  background-color: #ffffff;
-  color: #000000;
 }
 
 .form_btn {
