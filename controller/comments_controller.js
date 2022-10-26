@@ -1,7 +1,26 @@
 const Comment = require("../models/comment");
+const Post = require("../models/post");
 
 module.exports.create = function (req, res) {
-  Comment.create({
-    content: req.body.content,
+  Post.findById(req.body.post, function (err, post) {
+    if (post) {
+      Comment.create(
+        {
+          content: req.body.content,
+          post: req.body.post,
+          user: req.user._id,
+        },
+        function (err, comment) {
+          //Handle Error
+          if (err) {
+            console.log("Error in adding the comments");
+          }
+          post.comments.push(comment);
+          post.save();
+
+          return res.redirect("/");
+        }
+      );
+    }
   });
 };
