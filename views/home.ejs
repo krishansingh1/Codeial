@@ -27,11 +27,13 @@
                         <% } %>
                 </ul>
             </div>
-</section>
 
-<section id="feed-comments">
-    <form action="" id="new-comment-form" method="post">
-        <input type="text" value="comment" placeholder="comment here...">
-        <input type="submit" value="Comment">
-    </form>
+            <div class="post-comments">
+                <% if(locals.user) { %>
+                    <form action="/comments/create" id="new-comment-form" method="post">
+                        <input type="text" value="comment" placeholder="Comment here...">
+                        <input type="submit" value="Comment">
+                    </form>
+                    <% } %>
+            </div>
 </section>
