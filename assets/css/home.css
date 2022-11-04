@@ -2,8 +2,17 @@ h1 {
   font-size: 3rem;
   color: #ffffff; }
 
+#home_container {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between; }
+  #home_container #users {
+    border-left: 1px solid #000000;
+    padding-right: 5rem;
+    padding-left: 5px; }
+
 #feed-posts {
-  margin-left: 3rem; }
+  margin-left: 2rem; }
   #feed-posts h4 {
     font-size: 2rem; }
 
@@ -15,7 +24,7 @@ h1 {
   margin-bottom: 1rem;
   margin-left: 1rem;
   font-size: 0.8rem;
-  width: 15%; }
+  width: 50%; }
 
 #delete_btn i {
   position: relative;
@@ -23,6 +32,6 @@ h1 {
   left: 10rem;
   color: #000000; }
 
-#footer {
+#users {
   position: relative;
-  top: -0.1rem; }
+  left: -2rem; }
