@@ -22,3 +22,7 @@ h1 {
   top: -1.5rem;
   left: 10rem;
   color: #000000; }
+
+#footer {
+  position: relative;
+  top: -0.1rem; }

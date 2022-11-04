@@ -1,35 +1,24 @@
 h1 {
   font-size: 3rem;
-  color: #ffffff;
-}
+  color: #ffffff; }
 
 #feed-posts {
-  margin-left: 3rem;
-  h4 {
-    font-size: 2rem;
-  }
-}
+  margin-left: 3rem; }
+  #feed-posts h4 {
+    font-size: 2rem; }
 
 #post-list-container ul li {
-  list-style-type: none;
-}
+  list-style-type: none; }
 
 .comment-list {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
   margin-left: 1rem;
   font-size: 0.8rem;
-  width: 15%;
-}
+  width: 15%; }
 
 #delete_btn i {
   position: relative;
   top: -1.5rem;
   left: 10rem;
-  color: #000000;
-}
-
-#footer{
-  position: relative;
-  top: -0.1rem;
-}
+  color: #000000; }
