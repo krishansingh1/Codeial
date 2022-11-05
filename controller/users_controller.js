@@ -85,6 +85,7 @@ module.exports.createSession = function (req, res) {
 
       //handle session creation
       res.cookie("user_id", user.id);
+      req.flash("success", "Logged in Successfully");
       return res.redirect("/");
     } else {
       //handle user not found
@@ -98,6 +99,7 @@ module.exports.signOut = function (req, res, next) {
     if (err) {
       return next(err);
     }
+    req.flash("success", "Your have logged out");
     res.redirect("/users/signIn");
   });
 };
