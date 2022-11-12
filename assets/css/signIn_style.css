@@ -43,7 +43,6 @@ body {
 
 #form input::placeholder {
   font-family: "Poppins", sans-serif;
-  padding-left: 0.5rem;
   font-size: 0.9rem; }
 
 #form input[type="password"]::placeholder {
