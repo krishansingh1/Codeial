@@ -14,6 +14,14 @@
           let newPost = newPostDom(data.data.post);
           $("#post-list-container>ul").prepend(newPost);
           deletePost($(" .delete-post-button", newPost));
+
+          new Noty({
+            theme: "relax",
+            type: "Post created successfully",
+            type: "success",
+            layout: "topRight",
+            timeout: 1500,
+          }).show();
         },
         error: function (error) {
           console.log(error.responseText);
@@ -70,6 +78,14 @@
         url: $(dataLink).prop("href"),
         success: function (data) {
           $(`#post-${data.data.post._id}`).remove();
+
+          new Noty({
+            theme: "relax",
+            type: "Post deleted",
+            type: "success",
+            layout: "topRight",
+            timeout: 1500,
+          }).show();
         },
         error: function (error) {
           console.log(error.responseText);

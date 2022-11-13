@@ -9,6 +9,8 @@ module.exports.create = async function (req, res) {
     });
 
     if (req.xhr) {
+      post = await post.populate("user", "name").execPopulate();
+
       return res.status(200).json({
         data: {
           post: post,
@@ -17,12 +19,12 @@ module.exports.create = async function (req, res) {
       });
     }
 
-    req.flash("success", "Post Published");
+    req.flash("success", "Post created successfully");
     return res.redirect("back");
   } catch (err) {
-    // console.log("Error", err);
     req.flash("error", err);
-    return;
+    console.log("Error", err);
+    return res.redirect("back");
   }
 };
 
@@ -52,7 +54,6 @@ module.exports.destroy = async function (req, res) {
       return res.redirect("back");
     }
   } catch (err) {
-    // console.log("Error", err);
     req.flash("error", err);
     return;
   }

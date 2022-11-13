@@ -99,7 +99,7 @@ module.exports.signOut = function (req, res, next) {
     if (err) {
       return next(err);
     }
-    req.flash("success", "Your have logged out");
+    req.flash("success", "You have logged out");
     res.redirect("/users/signIn");
   });
 };
