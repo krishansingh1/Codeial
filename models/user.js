@@ -1,4 +1,9 @@
 const mongoose = require("mongoose");
+const multer = require("multer");
+
+const path = require("path");
+
+const AVATAR_PATH = path.join("/upload/users/avatar");
 
 const userSchema = new mongoose.Schema({
   email: {
