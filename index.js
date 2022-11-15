@@ -22,7 +22,8 @@ app.use(
   })
 );
 
-app.use(express.urlencoded());
+
+ 
 
 app.use(cookieParser());
 

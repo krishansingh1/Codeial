@@ -9,12 +9,30 @@ module.exports.profile = function (req, res) {
   });
 };
 
-module.exports.update = function (req, res) {
+module.exports.update = async function (req, res) {
+  // if (req.user.id == req.params.id) {
+  //   User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
+  //     return res.redirect("back");
+  //   });
+  // } else {
+  //   res.flash;
+  //   return res.status(401).send("Unauthorized");
+  // }
   if (req.user.id == req.params.id) {
-    User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
+    try {
+      let user = await User.findById(req.params.id);
+      User.uploadedAvatar(req, res, function (err) {
+        if (err) {
+          console.log("*****Multer Error", err);
+        }
+        console.log(req.file);
+      });
+    } catch (err) {
+      req.flash("error", err);
       return res.redirect("back");
-    });
+    }
   } else {
+    res.flash;
     return res.status(401).send("Unauthorized");
   }
 };
@@ -45,24 +63,28 @@ module.exports.signIn = function (req, res) {
 
 module.exports.create = function (req, res) {
   if (req.body.password != req.body.confirm_password) {
+    req.flash("error", "Passwords do not match");
     return res.redirect("back");
   }
 
   User.findOne({ email: req.body.email }, function (err, user) {
     if (err) {
-      console.log("Error in finding user in signing up");
+      // console.log("Error in finding user in signing up");
+      req.flash("error", err);
       return;
     }
 
     if (!user) {
       User.create(req.body, function (err, user) {
         if (err) {
-          console.log("Error in creating user while signing up");
+          // console.log("Error in creating user while signing up");
+          req.flash("error", err);
           return;
         }
         return res.redirect("/users/signIn");
       });
     } else {
+      req.flash("success", "You have signed up, login to continue!");
       return res.redirect("back");
     }
   });
