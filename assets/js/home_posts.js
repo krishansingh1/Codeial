@@ -7,7 +7,7 @@
       e.preventDefault();
 
       $.ajax({
-        type: "Post",
+        type: "post",
         url: "/posts/create",
         data: newpostForm.serialize(),
         success: function (data) {
@@ -15,9 +15,11 @@
           $("#post-list-container>ul").prepend(newPost);
           deletePost($(" .delete-post-button", newPost));
 
+          new PostComments(data.data.post._id);
+          
           new Noty({
             theme: "relax",
-            type: "Post created successfully",
+            text: "Post published!",
             type: "success",
             layout: "topRight",
             timeout: 1500,
@@ -35,19 +37,21 @@
   let newPostDom = function (post) {
     return $(`
     <li id="post-${post._id}">
-    ${post.content}
-    <br />
-    <small> ${post.user.name} </small>
-    
-    <span id="delete_btn">
-      <a class="delete-post-button" href="/posts/destroy/${post._id}"
+      <span id="delete_btn">
+      <small>
+        <a class="delete-post-button" href="/posts/destroy/${post._id}"
         ><i class="fa-solid fa-trash-can"></i
-      ></a>
-    </span>
+        ></a>
+      </small>  
+      </span>
+      ${post.content}
+      <br />
+      <small id="style_name">
+      ${post.user.name} 
+      </small>
 
-    <div class="post-comments">
-      
-      <form action="/comments/create" id="new-comment-form" method="post">
+    <div class="post-comments">      
+      <form id="post-${post._id}-comment-form" action="/comments/create" method="post">
         <input
           type="text"
           name="content"
@@ -75,13 +79,12 @@
 
       $.ajax({
         type: "get",
-        url: $(dataLink).prop("href"),
+        url: $(deleteLink).prop("href"),
         success: function (data) {
-          $(`#post-${data.data.post._id}`).remove();
-
+          $(`#post-${data.data.post_id}`).remove();
           new Noty({
             theme: "relax",
-            type: "Post deleted",
+            text: "Post Deleted",
             type: "success",
             layout: "topRight",
             timeout: 1500,
@@ -94,5 +97,18 @@
     });
   };
 
+  let convertPostsToAjax = function () {
+    $("#posts-list-container>ul>li").each(function () {
+      let self = $(this);
+      let deleteButton = $(" .delete-post-button", self);
+      deletePost(deleteButton);
+
+      // get the post's id by splitting the id attribute
+      let postId = self.prop("id").split("-")[1];
+      new PostComments(postId);
+    });
+  };
+
   createPost();
+  convertPostsToAjax();
 }
