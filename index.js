@@ -22,9 +22,6 @@ app.use(
   })
 );
 
-
- 
-
 app.use(cookieParser());
 
 app.use(express.static("./assets"));
