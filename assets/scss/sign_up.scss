@@ -1,23 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #7f56da; }
+  background-color: #7f56da;
+}
+
+#footer {
+  position: relative;
+  top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+  background-color: gray;
+  height: 3rem;
+  padding-top: 0.8rem;
+}
 
 #signup_form {
   margin: 0 auto;
   width: 32rem;
   height: 33rem;
   background-color: #ffffff;
-  padding-left: 5rem; }
+  padding-left: 5rem;
+}
 
 #signup_form h1 {
   padding-top: 2rem;
-  padding-bottom: 1rem; }
+  padding-bottom: 1rem;
+}
 
 #form input {
   margin-top: 0.5rem;
@@ -27,22 +43,24 @@ body {
   border-radius: 0.5rem;
   border: 1.5px solid gray;
   font-family: "Poppins", sans-serif;
-  font-size: 0.9rem; }
+  font-size: 0.9rem;
+}
 
 #form input::placeholder {
   font-family: "Poppins", sans-serif;
-  padding-left: 0.5rem;
-  font-size: 0.9rem; }
+  font-size: 0.9rem;
+}
 
 #form input:focus {
   font-family: "Poppins", sans-serif;
-  padding-left: 0.5rem;
-  font-size: 0.9rem; }
+  font-size: 0.9rem;
+}
 
 #form_span {
   position: relative;
   top: -1rem;
-  font-size: 0.8rem; }
+  font-size: 0.8rem;
+}
 
 .form_btn {
   width: 20rem;
@@ -55,12 +73,10 @@ body {
   font-weight: bold;
   color: #ffffff;
   margin-top: 1rem;
-  cursor: pointer; }
-
-.form_btn img {
-  width: 1.9rem;
-  padding-right: 0.5rem; }
+  cursor: pointer;
+}
 
 #btn_text span {
   position: relative;
-  top: -0.4rem; }
+  top: -0.4rem;
+}

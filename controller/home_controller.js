@@ -1,11 +1,37 @@
-module.exports.home = function (req, res) {
-  //return res.end("<h1>Express is ready and setup</h1>");
+const Post = require("../models/post");
+const User = require("../models/user");
 
-  return res.render("home", {
-    title: "Home",
-  });
-};
+module.exports.home = async function (req, res) {
+  // console.log(req.cookies);
+  // res.cookie("user_id", 25);
 
-module.exports.home2 = function (req, res) {
-  return res.end("<h1>Home2 controller is runinn!</h1>");
+  // Post.find({}, function (err, posts) {
+  //   return res.render("home", {
+  //     title: "Home Page",
+  //     posts: posts,
+  //   });
+  // });
+
+  try {
+    let posts = await Post.find({})
+      .sort("-createdAt")
+      .populate("user")
+      .populate({
+        path: "comments",
+        populate: {
+          path: "user",
+        },
+      });
+
+    let users = await User.find({});
+
+    return res.render("home", {
+      title: "Home Page",
+      posts: posts,
+      all_users: users,
+    });
+  } catch (err) {
+    console.log("Error", err);
+    return;
+  }
 };

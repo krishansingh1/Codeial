@@ -1,0 +1,22 @@
+#container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  margin-bottom: 2rem;
+  height: 2rem;
+  color: #7f56da;
+  padding-top: 0.2rem; }
+  #container #list {
+    display: flex;
+    margin: 0 1rem;
+    list-style-type: none; }
+    #container #list li:nth-child(1) {
+      margin-right: 1rem; }
+    #container #list a {
+      text-decoration: none; }
+
+#header_heading {
+  margin-left: 0.5rem;
+  color: #000000;
+  font-weight: bold;
+  color: #7f56da; }
