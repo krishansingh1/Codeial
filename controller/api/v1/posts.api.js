@@ -1,5 +1,5 @@
-const Post = require("../../../models/post");
-const Comment = require("../../../models/comment");
+const Post = require("../../../models/post_schema");
+const Comment = require("../../../models/comment_schema");
 
 module.exports.index = async function (req, res) {
   let posts = await Post.find({})
