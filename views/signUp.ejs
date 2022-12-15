@@ -1,25 +1,52 @@
-<link rel="stylesheet" href="/css/sign_up.css">
+<link rel="stylesheet" href="/css/sign_up.css" />
 <div id="signup_form">
-    <h1>Sign Up Page</h1>
-    <form action="/users/create" method="POST" id="form">
-        <label for="name">Name*</label>
-        <br>
-        <input type="text" name="name" id="name" placeholder="Enter your name" required>
-        <br>
-        <label for="email">Email*</label>
-        <br>
-        <input type="email" name="email" id="email" placeholder="Enter you email" required>
-        <br>
-        <label for="password">Password*</label>
-        <br>
-        <input type="password" name="password" id="password" placeholder="Create a password" required>
-        <br>
-        <span id="form_span">Must be at least 8 characters.</span>
-        <br>
-        <label for="confirm_password">Confirm Password*</label>
-        <br>
-        <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm password" required>
-        <br>
-        <button type="submit" class="form_btn">Create account</button>
-    </form>
+  <h1>Sign Up Page</h1>
+  <form action="/users/create" method="POST" id="form">
+    <label for="name">Name*</label>
+    <br />
+    <input
+      type="text"
+      name="name"
+      id="name"
+      placeholder="Enter your name"
+      required
+    />
+    <br />
+    <label for="email">Email*</label>
+    <br />
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="Enter you email"
+      required
+    />
+    <br />
+    <label for="password">Password*</label>
+    <br />
+    <input
+      type="password"
+      name="password"
+      id="password"
+      placeholder="Create a password"
+      required
+    />
+    <br />
+    <span id="form_span">Must be at least 8 characters.</span>
+    <br />
+    <label for="confirm_password">Confirm Password*</label>
+    <br />
+    <input
+      type="password"
+      name="confirm_password"
+      id="confirm_password"
+      placeholder="Confirm password"
+      required
+    />
+    <br />
+    <button type="submit" class="form_btn">Create account</button>
+  </form>
+  <p class="form_btn2">
+    <a href="/users/auth/google">Sign Up Google</a>
+  </p>
 </div>

@@ -1,18 +1,33 @@
-<link rel="stylesheet" href="/css/signIn_style.css">
+<link rel="stylesheet" href="/css/signIn_style.css" />
 <div id="signup_form">
-    <h1>Welcome Back</h1>
-    <p>Welcome back! Please enter your details</p>
-    <form action="/users/create-session" id="form" method="POST">
-        <label for="email">Email*</label>
-        <br>
-        <input type="email" name="email" id="email" placeholder="Enter you email" required>
-        <br>
-        <label for="password">Password*</label>
-        <br>
-        <input type="password" name="password" id="password" placeholder="........" required>
-        <br>
-        <span id="form_span">Forgot password</span>
-        <br>
-        <button type="submit" class="form_btn">Sign In</button>
-    </form>
+  <h1>Welcome Back</h1>
+  <p>Welcome back! Please enter your details</p>
+  <form action="/users/create-session" id="form" method="POST">
+    <label for="email">Email*</label>
+    <br />
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="Enter you email"
+      required
+    />
+    <br />
+    <label for="password">Password*</label>
+    <br />
+    <input
+      type="password"
+      name="password"
+      id="password"
+      placeholder="........"
+      required
+    />
+    <br />
+    <span id="form_span"><a href="/reset-password/">Forgot password</a></span>
+    <br />
+    <button type="submit" class="form_btn">Sign In</button>
+  </form>
+  <p class="form_btn2">
+    <a href="/users/auth/google">Sign in Google</a>
+  </p>
 </div>
