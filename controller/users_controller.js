@@ -127,3 +127,48 @@ module.exports.signOut = function (req, res, next) {
     res.redirect("/users/signIn");
   });
 };
+
+module.exports.forgot = function (req, res) {
+  return res.render('identity');
+}
+
+module.exports.resetPassword = function (req, res) {
+  User.findOne({ email: req.body.email }, function (err, user) {
+    if (err) {
+      console.log("Err in finding email", err);
+      return;
+    }
+    if (user) {
+      req.flash('success', "Change Password Now!");
+      return res.render('changePassword', {
+        user: user
+      })
+    } else {
+      req.flash('error', "Email id do not exists");
+      return res.redirect('back');
+    }
+  })
+}
+
+module.exports.getPassword = function (req, res) {
+  return res.render('changePassword');
+}
+
+module.exports.changePassword = function (req, res) {
+  if (req.body.newPassword == req.body.confirmNewPassword) {
+    User.findOne({ email: req.params.id }, function (err, user) {
+      if (user) {
+        user.password = req.body.newPassword;
+        user.save();
+        req.flash('success', "Password Changes Successfully!");
+        return res.redirect('/');
+      } else {
+        req.flash('error', "Didn't Find user");
+      }
+    })
+  } else {
+    req.flash("error", "Didn't match");
+    return res.redirect('/identity');
+  }
+}
+
