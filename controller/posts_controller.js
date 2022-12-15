@@ -1,9 +1,9 @@
-const Post = require("../models/post");
-const Comment = require("../models/comment");
+const Posts = require("../models/post_schema");
+const Comment = require("../models/comment_schema");
 
 module.exports.create = async function (req, res) {
   try {
-    let post = await Post.create({
+    let post = await Posts.create({
       content: req.body.content,
       user: req.user._id,
     });
@@ -19,8 +19,8 @@ module.exports.create = async function (req, res) {
       });
     }
 
-    req.flash("success", "Post created successfully");
-    return res.redirect("back");
+    // req.flash("success", "Post created successfully");
+    // return res.redirect("back");
   } catch (err) {
     req.flash("error", err);
     console.log("Error", err);
@@ -30,7 +30,7 @@ module.exports.create = async function (req, res) {
 
 module.exports.destroy = async function (req, res) {
   try {
-    let post = await Post.findById(req.params.id);
+    let post = await Posts.findById(req.params.id);
 
     if (post.user == req.user.id) {
       post.remove();
@@ -55,6 +55,6 @@ module.exports.destroy = async function (req, res) {
     }
   } catch (err) {
     req.flash("error", err);
-    return;
+    return res.redirect("back");
   }
 };
