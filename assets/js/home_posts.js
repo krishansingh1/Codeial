@@ -16,7 +16,7 @@
           deletePost($(" .delete-post-button", newPost));
 
           new PostComments(data.data.post._id);
-          
+
           new Noty({
             theme: "relax",
             text: "Post published!",
@@ -49,7 +49,7 @@
       <small id="style_name">
       ${post.user.name} 
       </small>
-
+      
     <div class="post-comments">      
       <form id="post-${post._id}-comment-form" action="/comments/create" method="post">
         <input
