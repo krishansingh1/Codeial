@@ -53,20 +53,16 @@ class PostComments {
   newCommentDom(comment) {
     // I've added a class 'delete-comment-button' to the delete comment link and also id to the comment's li
     return $(`<li id="comment-${comment._id}">
-                        <p>
-                            
-                            <small>
-                                <a class="delete-comment-button" href="/comments/destroy/${comment._id}">X</a>
-                            </small>
-                            
-                            ${comment.content}
-                            <br>
-                            <small>
-                                ${comment.user.name}
-                            </small>
-                        </p>    
-
-                </li>`);
+              ${comment.content}
+              <br />
+              <small> ${comment.user.name} </small>
+              <span id="delete_btn">
+                <a class="delete-comment-button" href="/comments/destroy/${comment._id}">
+                  <i class="fa-solid fa-trash-can"></i>
+                </a>
+              </span>
+            <% } %>
+            </li>`);
   }
 
   deleteComment(deleteLink) {

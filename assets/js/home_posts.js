@@ -51,7 +51,7 @@
       </small>
       
     <div class="post-comments">      
-      <form id="post-${post._id}-comment-form" action="/comments/create" method="post">
+      <form id="post-${post._id}-comments-form" action="/comments/create" method="post">
         <input
           type="text"
           name="content"
@@ -63,7 +63,7 @@
       </form>
     
       <div class="comment-list">
-        <ul id="post-comment-${post._id}">
+        <ul id="post-comments-${post._id}">
         
         </ul>
       </div>
