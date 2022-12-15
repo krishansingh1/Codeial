@@ -3,7 +3,7 @@ const multer = require("multer");
 
 const path = require("path");
 
-const AVATAR_PATH = path.join("/upload/users/avatars");
+const AVATAR_PATH = path.join("/uploads/users/avatar");
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -34,7 +34,7 @@ let storage = multer.diskStorage({
   },
 });
 
-//static methods
+//static functions
 userSchema.statics.uploadedAvatar = multer({ storage: storage }).single(
   "avatar"
 );
