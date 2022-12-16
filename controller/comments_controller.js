@@ -1,5 +1,6 @@
-const Comments = require("../models/comment_schema");
-const Posts = require("../models/post_schema");
+const Comment = require("../models/comment_schema");
+const Post = require("../models/post_schema");
+const Like = require('../models/like_schema');
 const commentsMailer = require("../mailers/comments_mailer");
 const queue = require("../config/kue");
 const commentEmailWorker = require("../workers/comment_email_worker");
@@ -70,7 +71,7 @@ module.exports.destroy = async function (req, res) {
 
       req.flash("success", "Comment deleted!");
       return res.redirect("back");
-      
+
     } else {
       req.flash("error", "Unauthorized");
       return res.redirect("back");
