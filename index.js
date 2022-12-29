@@ -1,7 +1,11 @@
 const express = require("express");
+const env = require('./config/environment');
+const logger = require('morgan');
+
 const cookieParser = require("cookie-parser");
 const app = express();
-const port = 8000;
+require('./config/view_helpers')(app);
+const port = process.env.port;
 const expressLayouts = require("express-ejs-layouts");
 const db = require("./config/mongoose");
 const session = require("express-session");
@@ -14,23 +18,38 @@ const sassMiddleware = require("node-sass-middleware");
 const flash = require("connect-flash");
 const customMware = require("./config/middleware");
 
-app.use(
-  sassMiddleware({
-    src: "./assets/scss",
-    dest: "./assets/css",
-    debug: true,
-    outputStyle: "extended",
-    prefix: "/css",
-  })
-);
+//Setup the chat server to work with socket.io
+const chatServer = require('http').Server(app);
+const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
+chatServer.listen(5000);
+const cors = require('cors');
+
+console.log("Chat server is listening on port 5000");
+
+const path = require('path');
+
+if (env.name == "development") {
+  app.use(
+    sassMiddleware({
+      src: path.join(__dirname, env.assest_path, 'scss'),
+      dest: path.join(__dirname, env.assest_path, 'css'),
+      debug: true,
+      outputStyle: "extended",
+      prefix: "/css",
+    })
+  );
+}
 
 app.use(express.urlencoded());
 
 app.use(cookieParser());
 
-app.use(express.static("./assets"));
+app.use(express.static(env.assest_path));
 //Make the uploades path avaialable to the users
 app.use("/uploads", express.static(__dirname + "/uploads"));
+
+app.use(logger(env.morgan.mode, env.morgan.options));
+
 app.use(expressLayouts);
 
 //extract styles and scripts from sub page into the layout
@@ -45,7 +64,7 @@ app.use(
   session({
     name: "codeial",
     //ToDo change the screen
-    secret: "something",
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {
