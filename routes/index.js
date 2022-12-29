@@ -12,5 +12,8 @@ router.use("/posts", require("./posts"));
 router.use("/comments", require("./comments"));
 router.use('/identity', require('./identity'));
 router.use('/likes', require('./likes'));
+router.use('/add', require('./add'));
+router.use('/remove', require('./remove'));
 
+router.use('/api', require('./api'));
 module.exports = router;
