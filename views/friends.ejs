@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="<%= assetPath('css/friends.css')%>">
+
+<main id="friends-list">
+    <h3>My Friends</h3>
+    <div id="myfriends">
+        <% for(frnds of locals.user.friends){ %>
+            <% for(list of users){ %>
+                <% if(frnds==list.id) { %>
+                    <div class="friends" id="user-<%=list._id %>">
+                        <div id="friends-img-box">
+                            <div id="friends-img">
+                                <img src="<%= list.avatar %>" alt="">
+                                <div id="status"></div>
+                            </div>
+                            <p><a href="/home/profile/<%= list.id %>">
+                                    <%=list.first + ' ' + list.last %>
+                                </a></p>
+                        </div>
+                        <div id="add-box">
+                            <a class="toggle-remove" data-value="remove" href="/remove/remove_toggle/?id=<%=list.id%>">
+                                <span>Remove</span>
+                            </a>
+                        </div>
+                    </div>
+                    <% } %>
+                        <% } %>
+                            <% } %>
+    </div>
+    <h3>Suggestions</h3>
+    <div id="totalusers">
+        <% if(locals.user.friends.length==0 ) { %>
+            <% for(list of users) { %>
+                <% if(locals.user.id !=list.id) { %>
+                    <div class="users" id="user-<%=list._id %>">
+                        <div id="users-img-box">
+                            <div id="users-img">
+                                <img src="<%= list.avatar %>" alt="">
+                            </div>
+                            <p><a href="/home/profile/<%= list.id %>">
+                                    <%=list.first + ' ' + list.last %>
+                                </a></p>
+                        </div>
+                        <div id="add-box">
+                            <a class="toggle-add" href="/add/add_toggle/?id=<%=list.id%>">
+                                <span>Add</span>
+                            </a>
+                        </div>
+                    </div>
+                    <% } %>
+
+                        <% } %>
+
+                            <% } else { %>
+                                <% let frnds=locals.user.friends %>
+                                    <% for(list of users){ %>
+                                        <% if(locals.user.id !=list.id) { %>
+                                            <% let val=true %>
+                                                <% for(myfrnds of frnds){ %>
+                                                    <% if(myfrnds==list.id) { %>
+                                                        <% val=false %>
+                                                            <% } %>
+
+                                                                <% } %>
+                                                                    <% if(val) { %>
+
+                                                                        <div class="users" id="user-<%=list._id %>">
+                                                                            <div id="users-img-box">
+                                                                                <div id="users-img">
+                                                                                    <img src="<%= list.avatar %>"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <p><a
+                                                                                        href="/home/profile/<%= list.id %>">
+                                                                                        <%=list.first + ' ' + list.last
+                                                                                            %>
+                                                                                    </a></p>
+                                                                            </div>
+                                                                            <div id="add-box">
+                                                                                <a class="toggle-add" data-value="add"
+                                                                                    href="/add/add_toggle/?id=<%=list.id%>">
+                                                                                    <span>Add</span>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <% } %>
+                                                                            <% } %>
+                                                                                <% } %>
+
+                                                                                    <% } %>
+    </div>
+</main>
+<script src="<%= assetPath('js/add_toggle.js')%>"></script>
+<script src="<%= assetPath('js/remove_toggle.js')%>"></script>
+<script src="<%= assetPath('js/index.js')%>"></script>
+<script>
+    $(' .friends').each(function () {
+        let self = this;
+        let toggleRemove = new ToggleRemove(self);
+    })
+
+    $(' .users').each(function () {
+        let self = this;
+        let toggleAdd = new ToggleAdd(self);
+    })
+</script>
